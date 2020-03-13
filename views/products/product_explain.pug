@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+    .container
+    .row
+        .col-md-1
+        .col-md-5
+            ul.list-group(style='margin:20px;font-size:auto;')
+                li.list-group-item
+                    img.fluid.col-md-12(src= product.img)
+                li.list-group-item
+                    h4 상품 설명
+                    p= product.content
+                li.list-group-item
+                    h4 상품 후기
+                    p
+                    |저는 이 강좌를 듣고~
+
+        .col-md-5
+            ul.list-group(style='margin:20px;font-size:auto;')
+                li.list-group-item
+                    .conainer
+                    .row
+                        .col-md-4 
+                            h6(style='display:inline;margin:10px;') 상품명
+                        .col-md-8
+                            h6=product.title
+                li.list-group-item
+                    .conainer
+                    .row
+                        .col-md-4 
+                            h6(style='display:inline;margin:10px;') 가격
+                        .col-md-8
+                            h6= product.price
+                li.list-group-item
+                    a(href=`/products/purchase/${product._id}`)     
+                        button.btn-primary(style='width:100%;float:right;') 구매
+                li.list-group-item
+                    h6 판매자 프로필
+                    ul.list-group(style='margin:25px;font-size:auto;')
+                        li.list-group-item
+                            .row
+                                .col-md-4
+                                img.fluid.col-md-4(src= seller.img)
+                                .col-md-4
+                        li.list-group-item
+                            .row
+                                .col-md-4 
+                                    h8 이메일
+                                .col-md-8= seller.seller_id.email
+                        li.list-group-item
+                            .row
+                                .col-md-4
+                                    h8 이름
+                                .col-md-8= seller.name
+                        li.list-group-item
+                            .row
+                                .col-md-4
+                                    h8 소개
+                                .col-md-8= seller.introduce      

@@ -1,0 +1,21 @@
+extends ../layout
+block hero-unit
+    #head
+        h2 공지사항 작성
+block content
+    .container
+        .row(style="margin-top:20px;margin-left:0; margin-right:0;")
+            .col-md-2
+
+            .col-md-8
+            form(action='/manager/notice', method='' style="width:100%;margin-left:auto;margin-right:auto;")
+                .form-group
+                label(for='') 제목
+                input.form-control(type='text', id='', name='', placeholder='제목' style="width:100%")
+                .form-group
+                label(for='') 내용
+                textarea.form-control(type='text', id='', name='', placeholder='내용' row=10 style="width:100%")
+            .col-md-2    
+
+        .row(style="margin-top:15px;")
+            button.btn.btn-primary(type='' style="margin-left:auto;margin-right:auto;width:20%;") 저장  

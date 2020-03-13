@@ -1,0 +1,28 @@
+extends ../layout
+block content
+    .row
+      include ./customer_list
+    .row
+        br
+    .row
+
+        .col-md-2     
+        .col-md-8
+            if !orders.total
+                .alert.alert-info 구매 내역이 없습니다.
+            else
+                .orders
+                    each order in orders.docs
+                        .orders.row
+                            img.col-md-3.fluid(src=order.product.img)
+                            dl.col-md-9
+                                dt.col-md-3 주문번호
+                                dd.col-md-9= order.id 
+                                dt.col-sm-3 상품명
+                                dd.col-sm-9= order.product.title
+                                dt.col-sm-3 가격
+                                dd.col-sm-9= order.price
+                                dt.col-sm-3 마감일
+                                dd.col-sm-9= order.closingDate
+                                a.btn.btn-sm.btn-outline-secondary.btn-primary.text-white(href=`/users/status/${order._id}`) 상황 보러가기
+        .col-md-1  

@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    include ./seller_list
+    .row
+        br
+    .row
+        br
+    .row
+        .col-md-2
+        .col-md-8
+            //- 
+                여기에 페이지 별 내용 들어감
+            ul.list-group(style='margin:25px;font-size:auto;')
+                li.list-group-item
+                    .container
+                    .row
+                        .col-md-4
+                        .col-md-4
+                            img.img-fluid(src= seller.img)
+                            br
+                        .col-md-4
+                li.list-group-item
+                    .row
+                        .col-md-3 이메일
+                        .col-md-9= user.email
+                li.list-group-item
+                    .row
+                        .col-md-3 이름
+                        .col-md-3= seller.name
+                li.list-group-item
+                    .row
+                        .col-md-3 학력
+                        .col-md-3= seller.university
+                li.list-group-item
+                    .row
+                        .col-md-3 전공
+                        .col-md-3= seller.major
+                li.list-group-item
+                    .row
+                        .col-md-3 소개
+                        .col-md-9= seller.introduce
+
+                li.list-group-item
+                    a(href=`/seller/${currentUser._id}/edit`)
+                        button.btn(style='width:70px;background:skyblue;float:right;') 수정   
+        .col-md-1

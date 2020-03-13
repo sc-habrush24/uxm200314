@@ -1,0 +1,30 @@
+.header.clearfix
+  nav.navbar.navbar-expand-md.navbar-dark.fixed-top#top
+    .container
+      a.navbar-brand(href="/") MJ Mong
+      button.navbar-toggler(type="button", style="width:20%;",data-toggle="collapse", data-target="#navbarsExampleDefault", aria-controls="navbarsExampleDefault", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          if (!currentUser) 
+            li.nav-item
+              a.nav-link(href='/signin') 로그인
+            li.nav-item
+              a.nav-link(href='/users/signup') 회원가입
+          else
+            if(currentUser.seller)
+              li.nav-item
+                a.nav-link(href=`/seller/${currentUser._id}`) 판매자페이지
+            else if(currentUser.admin)
+              li.nav-item
+                a.nav-link(href=`/manager/category`) 카테고리 추가
+              li.nav-item
+                a.nav-link(href=`/manager/manage_user`) 유저 관리
+            else
+              li.nav-item
+                a.nav-link(href=`/users/${currentUser._id}`) 마이페이지
+            li.nav-item
+              a.nav-link(href=`/notice`) 공지사항
+            li.nav-item
+              a.nav-link(href='/signout') 로그아웃    

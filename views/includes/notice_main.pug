@@ -1,0 +1,47 @@
+extends ../layout
+block hero-unit
+    #head
+        h2 공지사항
+block content 
+    .container
+    .row
+        br
+    .row(style="margin-left:0px; margin-right:0px; ")
+        .col-md-1
+        .col-md-10
+            table.table.table-hover(style="margin-top:30px; border-style:hidden;")
+                thead
+                tr
+                    th(style="width:10%") 번호
+                    th(style="width:55%") 제목
+                    th(style="width:15%") 작성자
+                    th(style="width:20%") 날짜
+                tbody(style="border-style:hidden;")
+                tr
+                    td.notice 1
+                    td.notice 안녕하세요
+                    td.notice 유원준
+                    td.notice 2020-03-05
+                tr
+                    td.notice 1
+                    td.notice 안녕하세요
+                    td.notice 유원준
+                    td.notice 2020-03-05
+            if(currentUser.admin)
+                a.btn.btn-primary(style="float:right; color:white" href='/notice/notice_write') 글쓰기
+            .text-center
+                nav(aria-label="...")
+                ul.pagination(style="display:flex; justify-content:center; align:center;")
+                    li.page-item.disabled
+                    a.page-link(href="#" tabindex="-1") Previous
+                    li.page-item
+                    a.page-link(href="#") 1
+                    li.page-item.active
+                    a.page-link(href="#")
+                        | 2 
+                        span.sr-only (current)
+                    li.page-item
+                    a.page-link(href="#") 3
+                    li.page-item
+                    a.page-link(href="#") Next
+        .col-md-1

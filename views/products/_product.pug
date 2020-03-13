@@ -1,0 +1,8 @@
+.card.md-4.shadow-sm.my-2.p-2
+  a(href=`/products/${product._id}`)
+    img.img-fluid(src=product.img)
+  .card-body.py-1
+    .small.text-secondary= product.category.name
+    .font-weight-bolder= product.title
+    span.card-text= product.price
+    span 원

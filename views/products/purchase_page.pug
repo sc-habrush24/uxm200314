@@ -1,0 +1,45 @@
+extends ../layout
+block content
+    .container-fluid
+    .row
+        .col-md-12
+            #grid
+                h4(style='margin-top:10px;color:black;display:flex;justify-content:center;') 결제 창
+    .row
+        br
+    .row(style="margin:5px")
+        .col-md-3
+        
+        .col-md-6(style="border:1px solid gray")
+            .container
+                .row
+                    img.col-md-4.fluid(src= product.img)
+                    form(action=`/products/purchase/${product._id}`, method='POST')
+                        .col-md-8
+                            table
+                                tbody
+                                    tr
+                                        th 판매자
+                                        th 상품명
+                                        th 가격
+                                        th 소요시간
+                                    tr
+                                        td= seller.name
+                                        td= product.title
+                                        td= product.price
+                                        td= product.requireTime
+                        button.btn(type='sumbit' ,style='color:white; margin:20px; width:70px;background:blue; float:right;') 구매
+        //-todo 여기에 metamask, web3 연결
+        .col-md-3
+        //- form(action=`/web3` method="POST")
+        //-     button(type=submit)
+        //- p= value
+    .row(style='display:flex;justify-content:center;')
+         button.btn(id='meta' ) 메타마스크 연습
+    .row(style='display:flex;justify-content:center;')
+         button.btn(id='web3' ) web 연결 테스트 돈보내기
+    .row(style='display:flex;justify-content:center;')
+         button.btn(id='test' ) web 거래 승인
+         h1#text
+    //- script(src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js")
+    

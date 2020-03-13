@@ -1,0 +1,16 @@
+extends layout
+
+block hero-unit
+  #head
+    h1 MJ
+    h2 Mong  
+  include ./includes/category
+
+block content
+  .container
+    .row
+      if !products.total
+        p 등록된 상품이 없습니다
+      each product in products.docs 
+        .col-md-2
+          include ./products/_product

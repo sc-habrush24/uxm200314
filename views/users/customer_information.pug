@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    include ./customer_list
+    .row
+        br
+    .row
+        .col-md-2
+        .col-md-8
+            //- 
+                여기에 페이지 별 내용 들어감
+            ul.list-group(style='margin:0px;font-size:auto;')
+                li.list-group-item
+                  .row
+                    .col-md-3 이메일
+                    .col-md-9= user.email 
+                li.list-group-item
+                    p 구매 상품 목록 :
+                    if !orders
+                      p 구매한 상품이 없습니다
+                    each order in orders 
+                      .col-md-2
+                        .card.md-4.shadow-sm.my-2.p-2
+                          a(href=`/products/${order.product._id}`)
+                            img.img-fluid(src=order.product.img)
+                          .card-body.py-1
+                            .small.text-secondary= order.product.category.name
+                            .font-weight-bolder= order.product.title
+                            span.card-text= order.product.price
+                            span 원                   
+
+        .col-md-1  

@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    include ./seller_list
+    .row
+        br
+    .row
+        .col-md-2
+        .col-md-8
+            //- 
+                여기에 페이지 별 내용 들어감
+            ul.list-group(style='margin:25px;font-size:auto;')
+                li.list-group-item(style='overflow:scroll;')
+                    .container(style='align-items:center;')
+                    each order in orders.docs
+                        .row.py-1
+                            img.fluid.col-md-4(src= order.product.img)
+                            .col-md-6
+                                .row
+                                    .col-md-3 주문번호 
+                                    .col-md-9= order.id
+                                .row
+                                    .col-md-3 상품명 
+                                    .col-md-9= order.product.title
+                                .row
+                                    .col-md-3 구매자
+                                    .col-md-9= order.buyer.email
+                                .row
+                                    .col-md-3 종료여부
+                                    if (order.finish)
+                                        .col-md-9 종료
+                                    else
+                                        .col-md-9 진행
+                                .row
+                                    .col-md-3 마감일
+                                    .col-md-9= order.closingDate
+                                a.btn.btn-primary(href= `/seller/status/${order._id}`) 진행상황 승인 신청
+
+        .col-md-1
