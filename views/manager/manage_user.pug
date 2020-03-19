@@ -10,22 +10,17 @@ block content
         .row    
             .col-md-1
             .col-md-10
-                ul.list-group(style="width:100%")
-                    li.list-group-item 
-                        h5 유저 이메일 : 
-                    li.list-group-item
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 정보 확인
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 수정    
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 삭제
-            .col-md-1
-        .row    
-            .col-md-1
-            .col-md-10
-                ul.list-group(style="width:100%")
-                    li.list-group-item 
-                        h5 유저 이메일 : 
-                    li.list-group-item
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 정보 확인
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 수정    
-                        a.btn.btn-primary(href="#" style="display:inline-block; margin : 10px;") 삭제
+                each user in users
+                    ul.list-group(style="width:100%")
+                        li.list-group-item 
+                            h5(style="display:inline") 유저 이메일 :
+                            h6(style="display:inline")= user.email
+                        li.list-group-item
+                            h5(style="display:inline") 판매자 여부 :
+                            if(user.seller)
+                                a.btn.btn-primary(href=`/seller/${user._id}`) 판매자
+                            else
+                                btn 구매자
+                        li.list-group-item 
+                            a.btn.btn-primary(href=`/users/${user._id}?_method=DELETE` style="display:inline-block; margin : 10px;") 삭제
             .col-md-1

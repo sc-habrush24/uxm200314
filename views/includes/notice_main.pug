@@ -24,19 +24,5 @@ block content
                         td.noticed= notice.date
             if(currentUser.admin)
                 a.btn.btn-primary(style="float:right; color:white" href='/notice/notice_write') 글쓰기
-            .text-center
-                nav(aria-label="...")
-                ul.pagination(style="display:flex; justify-content:center; align:center;")
-                    li.page-item.disabled
-                    a.page-link(href="#" tabindex="-1") Previous
-                    li.page-item
-                    a.page-link(href="#") 1
-                    li.page-item.active
-                    a.page-link(href="#")
-                        | 2 
-                        span.sr-only (current)
-                    li.page-item
-                    a.page-link(href="#") 3
-                    li.page-item
-                    a.page-link(href="#") Next
+            
         .col-md-1
