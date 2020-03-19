@@ -12,21 +12,16 @@ block content
             table.table.table-hover(style="margin-top:30px; border-style:hidden;")
                 thead
                 tr
-                    th(style="width:10%") 번호
                     th(style="width:55%") 제목
                     th(style="width:15%") 작성자
                     th(style="width:20%") 날짜
                 tbody(style="border-style:hidden;")
-                tr
-                    td.notice 1
-                    td.notice 안녕하세요
-                    td.notice 유원준
-                    td.notice 2020-03-05
-                tr
-                    td.notice 1
-                    td.notice 안녕하세요
-                    td.notice 유원준
-                    td.notice 2020-03-05
+                each notice in notices
+                    tr
+                        td
+                            a.noticed(href=`/notice/${notice._id}` style="color:black;")= notice.title
+                        td.noticed 관리자
+                        td.noticed= notice.date
             if(currentUser.admin)
                 a.btn.btn-primary(style="float:right; color:white" href='/notice/notice_write') 글쓰기
             .text-center
