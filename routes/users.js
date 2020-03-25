@@ -83,6 +83,12 @@ router.delete('/:id', needAuth, catchErrors(async (req, res, next) => {
   res.redirect('/');
 }));
 
+router.get('/review/:id', catchErrors(async(req, res, next) =>  {
+  const user = await User.findById(req.params.id);
+  const orders = await Order.find({buyer: req.params.id}).populate('product'); 
+  res.render('includes/review_main', {user: user, orders: orders});
+}));
+
 router.get('/products/:id', needAuth, catchErrors(async(req, res, next) =>  {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 12;

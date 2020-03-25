@@ -3,5 +3,5 @@ div(style='height:40px;white-space:nowrap;background:#81BEF7;overflow-x:scroll;'
     a.nav-link(href=`/users/${currentUser._id}`,style='color:white;display:inline;') 회원 정보
     a.nav-link(href='/seller/join',style='display:inline;color:white;') 판매자 여부 선택
     a.nav-link(href=`/users/products/${currentUser._id}`,style='color:white;display:inline;') 구매 상품 확인
-    a.nav-link(href='#',style='display:inline;color:white;') 후기 작성
+    a.nav-link(href=`/users/review/${currentUser._id}`,style='color:white;display:inline;') 후기 작성
     a.nav-link(href=`/users/${currentUser._id}?_method=DELETE`,style='color:white;display:inline;') 회원탈퇴
