@@ -1,7 +1,8 @@
 extends ../layout
 block hero-unit
-    #head
-        h2 공지사항 작성
+    div(style="padding-bottom:20px;background-color:#F5F5F5;margin-bottom:0px;")
+        br
+        h3(style="color:black;display:flex;justify-content:center;") 공지사항 작성
 block content
     .container
         .row(style="margin-top:20px;margin-left:0; margin-right:0;")
@@ -11,9 +12,9 @@ block content
             form(action='/notice/notice_write', method='POST' style="width:100%;margin-left:auto;margin-right:auto;")
                 .form-group
                     label(for='') 제목
-                    textarea.form-control(name='title', placeholder='제목' style="width:100%")
+                    textarea.form-control(name='title',rows=1, placeholder='제목' style="width:100%")
                 .form-group
                     label(for='') 내용
-                    textarea.form-control(name='content', placeholder='내용' style="width:100%")    
+                    textarea.form-control(name='content',rows=10,placeholder='내용' style="width:100%")
                 
-                button.btn.btn-primary(type="submit" style="margin-left:auto;margin-right:auto;width:20%;") 저장  
+                button.btn.btn-secondary(type="submit" style="float:right;width:20%;") 저장  

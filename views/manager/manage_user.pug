@@ -1,26 +1,30 @@
 extends ../layout
 block hero-unit
-    #head
-        h2 유저 관리
+    div(style="padding-bottom:20px;background-color:#F5F5F5;margin-bottom:0px;")
+        br
+        h3(style="color:black;display:flex;justify-content:center;") 유저 관리
 
 block content
     .container
-        .row
-            br
         .row    
             .col-md-1
             .col-md-10
+            table.table.table-hover(style="margin-top:0px; border-style:hidden;")
+                thead(style="border-style:hidden;")
+                tr(style="border-style:hidden;")
+                    th(style="width:55%") 유저 이메일
+                    th(style="width:15%") 관리자 여부
+                    th(style="width:20%") 강제 탈퇴
+                tbody(style="border-style:hidden;")
                 each user in users
-                    ul.list-group(style="width:100%")
-                        li.list-group-item 
-                            h5(style="display:inline") 유저 이메일 :
-                            h6(style="display:inline")= user.email
-                        li.list-group-item
-                            h5(style="display:inline") 판매자 여부 :
+                    tr(style="border-style:hidden;")
+                        td(style="border-style:hidden;")
+                            a.noticed(style="color:black;")= user.email
+                        td.noticed(style="border-style:hidden;")
                             if(user.seller)
-                                a.btn.btn-primary(href=`/seller/${user._id}`) 판매자
+                                a.btn.btn-secondary(href=`/seller/${user._id}`) 정보 확인
                             else
-                                btn 구매자
-                        li.list-group-item 
-                            a.btn.btn-primary(href=`/users/${user._id}?_method=DELETE` style="display:inline-block; margin : 10px;") 삭제
+                                a.btn.btn-secondary 해당 없음
+                        td.noticed(style="border-style:hidden;") 
+                            a.btn.btn-danger(href=`/users/${user._id}?_method=DELETE` style="display:inline-block; margin : 10px;") 삭제
             .col-md-1

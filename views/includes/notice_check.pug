@@ -1,7 +1,8 @@
 extends ../layout
 block hero-unit
-    #head
-        h2 공지사항
+    div(style="padding-bottom:20px;background-color:#F5F5F5;margin-bottom:0px;")
+        br
+        h3(style="color:black;display:flex;justify-content:center;") 공지사항
 
 block content
     .container
@@ -10,9 +11,7 @@ block content
 
             .col-md-8
             form(action=`/notice/${notice._id}`, style="width:100%;margin-left:auto;margin-right:auto;")
-                .form-group
-                    label(for='') 제목
-                    label.form-control(name='title', placeholder='제목' style="width:100%")= notice.title
-                .form-group
-                    label(for='') 내용
-                    label.form-control(name='content', placeholder='내용' style="width:100%")= notice.content                      
+                .form-group(style="border-top:1px solid black;text-align:center;")
+                    label(style="font-size:25px;")= notice.title
+                .form-group(style="border-top:1px solid black;text-align:center;")
+                    label(style="font-size:20px;")= notice.content                      

@@ -2,12 +2,14 @@ extends layout
 
 block hero-unit
   #head
-    h1 MJ
-    h2 Mong  
+    img(src="https://ww.namu.la/s/e9a38732ea8dc6f513c0b98ad5c2d74e3721337440814d8f0a0157bcc9475dbf00cf4b37fbde7bb6c16c329e685e9a83414dfa0c7130a755bae7cf41fd668a9798180e0498e4120848f813107c00ad92058b0dc0dab0e0ddd18701cafdeefc5c" style="width:8%;height:8%;margin-right:30px;margin-bottom:50px;")
+    h1(style="font-weight:800;font-size:85px;") MJ
+    h2(style="font-weight:800;font-size:60px;") Mong  
   include ./includes/category
 
 block content
   .container
+    br
     .row  
       if !products.total
         p 등록된 상품이 없습니다

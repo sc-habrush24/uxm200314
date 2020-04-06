@@ -1,28 +1,33 @@
 extends ../layout
 block hero-unit
-    #head
-        h2 공지사항
+    div(style="padding-bottom:20px;background-color:#F5F5F5;margin-bottom:0px;")
+        br
+        h3(style="color:black;display:flex;justify-content:center;") 공지사항
 block content 
     .container
-    .row
-        br
     .row(style="margin-left:0px; margin-right:0px; ")
         .col-md-1
         .col-md-10
-            table.table.table-hover(style="margin-top:30px; border-style:hidden;")
-                thead
-                tr
+            table.table.table-hover(style="margin-top:0px; border-style:hidden;")
+                thead(style="border-style:hidden;")
+                tr(style="border-style:hidden;")
                     th(style="width:55%") 제목
                     th(style="width:15%") 작성자
                     th(style="width:20%") 날짜
                 tbody(style="border-style:hidden;")
                 each notice in notices
-                    tr
-                        td
+                    tr(style="border-style:hidden;")
+                        td(style="border-style:hidden;")
                             a.noticed(href=`/notice/${notice._id}` style="color:black;")= notice.title
-                        td.noticed 관리자
-                        td.noticed= notice.date
+                        td.noticed(style="border-style:hidden;") 관리자
+                        td.noticed(style="border-style:hidden;") 
+                            = notice.date.getYear()+1900
+                            | / 
+                            = notice.date.getMonth()+1
+                            | / 
+                            = notice.date.getDate() 
             if(currentUser.admin)
-                a.btn.btn-primary(style="float:right; color:white" href='/notice/notice_write') 글쓰기
+                br
+                a.btn.btn-secondary(style="float:right; color:white" href='/notice/notice_write') 글쓰기
             
         .col-md-1
