@@ -7,12 +7,13 @@ block content
   .row(style="margin-left:auto;margin-right:auto;")
     .col-md-2
     .col-md-8
+      br
       form(action='/manager/category', method='POST')
         .form-group
-          label(for='name') name
+          label(for='name') 추가할 카테고리 명
           input.form-control(type='text', rows=1,id='name', name='name', placeholder='카테고리 명')
         .form-group
-          label(for='sequence') 순서
+          label(for='sequence') 추가할 카테고리의 순서
           input.form-control(type='number', rows=1,id='sequence', name='sequence', placeholder=' 배열순서')
     .col-md-2    
   .row(style="display:flex;justify-content:center;")
